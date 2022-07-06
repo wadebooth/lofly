@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Song from './components/Song'
+import './App.css'
+import Nav from './components/Nav'
+import Library from './components/Library'
+import LofiList from './components/lofilist'
+
+document.title = 'Lofly'
 
 function App() {
+  const [music, setMusic] = useState(LofiList)
+  const [currentmusic, setCurrentmusic] = useState(music[0])
+  const [librarystatus, setLibraryStatus] = useState(false)
+  const [isplaying, setIsPlaying] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Nav librarystatus={librarystatus} setLibraryStatus={setLibraryStatus} />
+      <main className='main-container'>
+        <Song currentMusic={currentmusic} isplaying={isplaying} />
+      </main>
+      <Library
+        librarystatus={librarystatus}
+        music={music}
+        setMusic={setMusic}
+        setCurrentmusic={setCurrentmusic}
+        setIsPlaying={setIsPlaying}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
