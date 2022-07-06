@@ -23,6 +23,20 @@ const Library = ({
           <option value='hip-hop'>hip-hop</option>
         </select>
       </div>
+      <div className='library-music-container'>
+        {selectedCategory === 'hip-hop'
+          ? hipHopArr.map((track) => (
+              <LibraryMusic
+                key={music.id}
+                setCurrentMusic={setCurrentmusic}
+                track={track}
+                music={music}
+                setMusic={setMusic}
+                setIsplaying={setIsplaying}
+              />
+            ))
+          : ''}
+      </div>
     </div>
   )
 }
