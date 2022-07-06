@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Song from './components/Song'
-import './App.css'
 import Nav from './components/Nav'
 import Library from './components/Library'
 import LofiList from './components/lofilist'
+import './App.css'
 
 document.title = 'Lofly'
 
