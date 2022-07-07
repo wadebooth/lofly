@@ -1,8 +1,8 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fontawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMusic } from '@fortawesome/free-solid-svg-icons'
 
-const Nav = () => {
+const Nav = ({ librarystatus, setLibrarystatus }) => {
   return (
     <nav>
       <h1>Lofly: Lofi Music Player</h1>
@@ -15,7 +15,10 @@ const Nav = () => {
             setLibrarystatus(false)
           }
         }}
-      ></button>
+      >
+        <FontAwesomeIcon className='icon' icon={faMusic} />
+        {librarystatus ? 'Close Library' : 'Open Library'}
+      </button>
     </nav>
   )
 }
